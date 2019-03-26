@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Car view</title>
+</head>
+<body>
+
+<h1>this is car view</h1>
+
+<!-- here goes comments -->
+
+<table>
+    <thead>
+        <th>Reg</th>
+        <th>Brand</th>
+        <th>Color</th>
+        <th>MaxSpeed</th>
+    </thead>
+    <tr th:each="car: ${cars}">
+        <td th:text="${car.reg}"></td>
+        <td th:text="${car.brand}">{{BRAND}}</td>
+        <td th:text="${car.color}">{{COLOR}}</td>
+        <td th:text="${car.maxSpeed}">{{SPEED}}</td>
+    </tr>
+</table>
+
+
+<!--<h2 th:text="${cars}"></h2>-->
+
+
+</body>
+</html>
