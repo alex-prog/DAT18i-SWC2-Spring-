@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.ArrayList;
@@ -21,6 +22,19 @@ public class CarController {
         model.addAttribute("cars", carList);
         return "show-car";
     }
+
+
+    @GetMapping("/addcar")
+    public String addCar(){
+        return "add-car";
+    }
+
+    @PostMapping("/savecar")
+    @ResponseBody
+    public String saveCar(){
+        return "Your data is saved and secured don't worry about GDPR.";
+    }
+
 
     @GetMapping("/carv")
     @ResponseBody

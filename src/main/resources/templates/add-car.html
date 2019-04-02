@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Car Add</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" href="#">iCar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item ">
+                <a class="nav-link" href="/">Home </a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/mycar">Cars <span class="sr-only">(current)</span></a>
+            </li>
+        </ul>
+        <span class="navbar-text">
+      iCar is the best place to buy
+    </span>
+    </div>
+</nav>
+
+
+
+
+<!-- here goes comments -->
+
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="display-4">Add new Car</h1>
+        <p class="lead">
+
+        <form action="/savecar" method="post">
+            <div class="form-group">
+                <label for="reg">Reg</label>
+                <input type="text" class="form-control" id="reg" placeholder="Reg" maxlength="7">
+            </div>
+            <div class="form-group">
+                <label for="brand">Brand</label>
+                <input type="text" class="form-control" id="brand" placeholder="Brand">
+            </div>
+            <div class="form-group">
+                <label for="color">Color</label>
+                <input type="text" class="form-control" id="color" placeholder="Color">
+            </div>
+            <div class="form-group">
+                <label for="maxspeed">MaxSpeed</label>
+                <input type="number" class="form-control" id="maxspeed" placeholder="MaxSpeed" min="0">
+            </div>
+            <button type="submit" class="btn btn-primary">Add Car</button>
+            <button type="reset" class="btn btn-primary">Cancel</button>
+        </form>
+
+
+
+        </p>
+    </div>
+</div>
+
+
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+</body>
+</html>
