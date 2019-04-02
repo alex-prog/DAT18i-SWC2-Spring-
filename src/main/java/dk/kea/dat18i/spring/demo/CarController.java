@@ -17,8 +17,7 @@ public class CarController {
 
     @GetMapping("/mycar")
     public String car(Model model){
-        List<Car> carList = new ArrayList<>();
-
+        List<Car> carList = carRepo.findAllCars();
         model.addAttribute("cars", carList);
         return "show-car";
     }
