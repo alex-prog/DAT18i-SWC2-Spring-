@@ -4,14 +4,16 @@
     <meta charset="UTF-8">
     <title>Car view</title>
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
 </head>
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <a class="navbar-brand" href="#">iCar</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarText">
@@ -30,7 +32,6 @@
 </nav>
 
 
-
 <h1>this is car view</h1>
 
 <!-- here goes comments -->
@@ -45,14 +46,16 @@
         <th scope="col">MaxSpeed</th>
         <th scope="col"></th>
         <th scope="col"></th>
+        <th scope="col"></th>
     </tr>
     </thead>
     <tbody>
     <tr th:each="car:${cars}">
         <th scope="row" th:text="${car.reg}">1</th>
         <td th:text="${car.brand}">Mark</td>
-        <td th:text="${car.color}">Otto</td>
+        <td th:text="${car.color}" th:style="${'background-color:'+car.color}">Otto</td>
         <td th:text="${car.maxSpeed}">@mdo</td>
+        <td><a target="_blank" th:href="@{'https://www.nummerplade.net/soeg/?regnr=' + ${car.reg}}">Details</a></td>
         <td><a class="btn btn-danger" th:href="@{'/deletecar/' + ${car.id}}">Delete</a></td>
         <td><a class="btn btn-success">Edit</a></td>
     </tr>
@@ -61,24 +64,26 @@
 </table>
 
 <!--<table>-->
-    <!--<thead>-->
-    <!--<th>Reg</th>-->
-    <!--<th>Brand</th>-->
-    <!--<th>Color</th>-->
-    <!--<th>MaxSpeed</th>-->
-    <!--</thead>-->
-    <!--<tr th:each="car: ${cars}">-->
-        <!--<td th:text="${car.reg}+' '+${car.brand}"></td>-->
-        <!--<td th:text="${car.brand}">{{BRAND}}</td>-->
-        <!--<td th:text="${car.color}">{{COLOR}}</td>-->
-        <!--<td th:text="${car.maxSpeed}">{{SPEED}}</td>-->
-    <!--</tr>-->
+<!--<thead>-->
+<!--<th>Reg</th>-->
+<!--<th>Brand</th>-->
+<!--<th>Color</th>-->
+<!--<th>MaxSpeed</th>-->
+<!--</thead>-->
+<!--<tr th:each="car: ${cars}">-->
+<!--<td th:text="${car.reg}+' '+${car.brand}"></td>-->
+<!--<td th:text="${car.brand}">{{BRAND}}</td>-->
+<!--<td th:text="${car.color}">{{COLOR}}</td>-->
+<!--<td th:text="${car.maxSpeed}">{{SPEED}}</td>-->
+<!--</tr>-->
 <!--</table>-->
 
 
 <!--<h2 th:text="${cars}"></h2>-->
 
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
 
 </body>
 </html>

@@ -29,11 +29,12 @@ public class CarController {
     }
 
     @PostMapping("/savecar")
-    @ResponseBody
+//    @ResponseBody
     public String saveCar(@ModelAttribute Car car){
 
         Car carInserted = carRepo.insert(car);
-        return "Your data is saved and secured don't worry about GDPR." + carInserted;
+//        return "Your data is saved and secured don't worry about GDPR." + carInserted;
+        return "redirect:/mycar";
     }
 
 
