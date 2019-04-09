@@ -43,6 +43,8 @@
         <th scope="col">Brand</th>
         <th scope="col">Color</th>
         <th scope="col">MaxSpeed</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
     </tr>
     </thead>
     <tbody>
@@ -51,6 +53,8 @@
         <td th:text="${car.brand}">Mark</td>
         <td th:text="${car.color}">Otto</td>
         <td th:text="${car.maxSpeed}">@mdo</td>
+        <td><a class="btn btn-danger" th:href="@{'/deletecar/' + ${car.id}}">Delete</a></td>
+        <td><a class="btn btn-success">Edit</a></td>
     </tr>
 
     </tbody>

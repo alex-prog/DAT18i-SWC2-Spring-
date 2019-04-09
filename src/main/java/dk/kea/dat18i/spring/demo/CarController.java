@@ -3,10 +3,7 @@ package dk.kea.dat18i.spring.demo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,8 +32,8 @@ public class CarController {
     @ResponseBody
     public String saveCar(@ModelAttribute Car car){
 
-        carRepo.insert(car);
-        return "Your data is saved and secured don't worry about GDPR.";
+        Car carInserted = carRepo.insert(car);
+        return "Your data is saved and secured don't worry about GDPR." + carInserted;
     }
 
 
@@ -45,6 +42,12 @@ public class CarController {
     public Car showCar(){
         Car car = carRepo.findCar(1);
         return car;
+    }
+
+    @GetMapping("/deletecar/{id}")
+    public String deleteCar(@PathVariable(name = "id") int id){
+        carRepo.delete(id);
+        return "redirect:/mycar";
     }
 
 }
