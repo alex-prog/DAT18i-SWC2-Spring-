@@ -39,22 +39,22 @@
         <h1 class="display-4">Add new Car</h1>
         <p class="lead">
 
-        <form action="/savecar" method="post">
+        <form action="/savecar" method="post" th:object="${carform}">
             <div class="form-group">
                 <label for="reg">Reg</label>
-                <input type="text" class="form-control" id="reg" placeholder="Reg" maxlength="7">
+                <input type="text" class="form-control" th:field="${carform.reg}" id="reg" placeholder="Reg" maxlength="7">
             </div>
             <div class="form-group">
                 <label for="brand">Brand</label>
-                <input type="text" class="form-control" id="brand" placeholder="Brand">
+                <input type="text" class="form-control" th:field="${carform.brand}" id="brand" placeholder="Brand">
             </div>
             <div class="form-group">
                 <label for="color">Color</label>
-                <input type="text" class="form-control" id="color" placeholder="Color">
+                <input type="text" class="form-control" th:field="${carform.color}" id="color" placeholder="Color">
             </div>
             <div class="form-group">
                 <label for="maxspeed">MaxSpeed</label>
-                <input type="number" class="form-control" id="maxspeed" placeholder="MaxSpeed" min="0">
+                <input type="number" class="form-control" th:field="${carform.maxSpeed}" id="maxspeed" placeholder="MaxSpeed" min="0">
             </div>
             <button type="submit" class="btn btn-primary">Add Car</button>
             <button type="reset" class="btn btn-primary">Cancel</button>

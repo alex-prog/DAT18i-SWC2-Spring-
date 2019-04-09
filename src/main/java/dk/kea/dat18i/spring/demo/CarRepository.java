@@ -44,4 +44,14 @@ public class CarRepository {
     }
 
 
+    //TODO
+    public Car insert(Car car){
+        String sql = "INSERT INTO cars VALUES(NULL, '"+car.getReg()+"', '"+car.getBrand()+"', '"+car.getColor()+"', "+car.getMaxSpeed()+")";
+        jdbc.execute(sql);
+        //TODO
+        car.setId(0);
+        return car;
+    }
+
+
 }
