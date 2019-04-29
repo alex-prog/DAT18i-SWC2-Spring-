@@ -21,10 +21,10 @@ public class CarRepository {
     @Autowired
     private JdbcTemplate jdbc;
 
-    public Car findCar(int id){
-        SqlRowSet rs = jdbc.queryForRowSet("SELECT * FROM cars WHERE id = "+id);
+    public Car findCar(int id) {
+        SqlRowSet rs = jdbc.queryForRowSet("SELECT * FROM cars WHERE id = " + id);
         Car car = new Car();
-        while (rs.next()){
+        while (rs.next()) {
             car.setId(rs.getInt("id"));
             car.setBrand(rs.getString("brand"));
             car.setColor(rs.getString("color"));
@@ -34,10 +34,10 @@ public class CarRepository {
         return car;
     }
 
-    public List<Car> findAllCars(){
+    public List<Car> findAllCars() {
         SqlRowSet rs = jdbc.queryForRowSet("SELECT * FROM cars");
         List<Car> carList = new ArrayList<>();
-        while (rs.next()){
+        while (rs.next()) {
             Car car = new Car();
             car.setId(rs.getInt("id"));
             car.setBrand(rs.getString("brand"));
@@ -50,7 +50,7 @@ public class CarRepository {
         return carList;
     }
 
-    public Car insert(Car car){
+    public Car insert(Car car) {
 
         PreparedStatementCreator psc = new PreparedStatementCreator() {
             @Override
@@ -77,6 +77,15 @@ public class CarRepository {
 
 
     public void delete(int id) {
-        jdbc.update("DELETE FROM cars WHERE id = "+id);
+        jdbc.update("DELETE FROM cars WHERE id = " + id);
+    }
+
+    public void update(Car car) {
+        jdbc.update("UPDATE cars SET " +
+                "reg='" + car.getReg() + "', " +
+                "brand='" + car.getBrand() + "', " +
+                "color='" + car.getColor() + "', " +
+                "max_speed='" + car.getMaxSpeed() + "' " +
+                "WHERE id=" + car.getId());
     }
 }

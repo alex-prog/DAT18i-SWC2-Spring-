@@ -51,4 +51,18 @@ public class CarController {
         return "redirect:/mycar";
     }
 
+
+    @GetMapping("/edit/{id}")
+    public String editCar(Model m, @PathVariable(name = "id") int id){
+        Car carToEdit = carRepo.findCar(id);
+        m.addAttribute("carform", carToEdit);
+        return "edit-car";
+    }
+
+
+    @PostMapping("/updatecar")
+    public String saveEditCar(@ModelAttribute Car car){
+        carRepo.update(car);
+        return "redirect:/mycar";
+    }
 }

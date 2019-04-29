@@ -57,7 +57,7 @@
         <td th:text="${car.maxSpeed}">@mdo</td>
         <td><a target="_blank" th:href="@{'https://www.nummerplade.net/soeg/?regnr=' + ${car.reg}}">Details</a></td>
         <td><a class="btn btn-danger" th:href="@{'/deletecar/' + ${car.id}}">Delete</a></td>
-        <td><a class="btn btn-success">Edit</a></td>
+        <td><a class="btn btn-success" th:href="@{'/edit/' + ${car.id}}" >Edit</a></td>
     </tr>
 
     </tbody>
